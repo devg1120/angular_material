@@ -1,0 +1,151 @@
+<!--
+<mat-grid-list cols="5" rowHeight="4:1">
+-->
+
+<mat-grid-list cols="5" >
+
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile>
+   mat-raised-button
+  </mat-grid-tile>
+  <mat-grid-tile>
+   ---
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+      <button mat-raised-button color="basic">Basic</button> 
+      <button mat-raised-button color="primary">Primary</button> 
+      <button mat-raised-button color="accent">Accent</button> 
+      <button mat-raised-button color="warn">Warn</button> 
+  </mat-grid-tile>
+
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile>
+   mat-button-toggle
+  </mat-grid-tile>
+  <mat-grid-tile>
+   ---
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+       <mat-button-toggle value="bold">Bold</mat-button-toggle>
+       <mat-button-toggle value="italic">Italic</mat-button-toggle>
+       <mat-button-toggle value="underline">Underline</mat-button-toggle>
+     </mat-button-toggle-group>
+  </mat-grid-tile>
+
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile>
+   mat-card
+  </mat-grid-tile>
+  <mat-grid-tile>
+   ---
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+     <mat-card>Simple card 1</mat-card>
+     <mat-card>Simple card 2</mat-card>
+     <mat-card>Simple card 3</mat-card>
+  </mat-grid-tile>
+
+
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile rowspan="3">
+   mat-card3
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="3">
+   - ng generate component card-fancy-example
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="3" colspan="3">
+    <app-card-fancy-example></app-card-fancy-example>
+  </mat-grid-tile>
+
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile>
+   mat-checkbox component
+  </mat-grid-tile>
+  <mat-grid-tile>
+   - ng generate component checkbox-overview-example
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+    <app-checkbox-overview-example></app-checkbox-overview-example>
+  </mat-grid-tile>
+
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile >
+   chips-drag-drop-example
+  </mat-grid-tile>
+  <mat-grid-tile >
+   - ng generate component chips-drag-drop-example
+
+  </mat-grid-tile>
+  <mat-grid-tile  colspan="3">
+    <app-chips-drag-drop-example></app-chips-drag-drop-example>
+  </mat-grid-tile>
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile >
+   date-range-picker-forms-example
+  </mat-grid-tile>
+  <mat-grid-tile >
+   - ng generate component date-range-picker-forms-example
+
+  </mat-grid-tile>
+  <mat-grid-tile  colspan="3">
+    <app-date-range-picker-forms-example></app-date-range-picker-forms-example>
+  </mat-grid-tile>
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile >
+   dialog-overview-example
+  </mat-grid-tile>
+  <mat-grid-tile >
+    <mat-card>
+       ng generate component dialog-overview-example
+    </mat-card>
+    <mat-card>
+       import dialog
+    </mat-card>
+
+  </mat-grid-tile>
+  <mat-grid-tile  colspan="3">
+    <app-dialog-overview-example></app-dialog-overview-example>
+  </mat-grid-tile>
+
+  <!--------------------------------------------------- -->
+
+  <mat-grid-tile>
+   mat-slider horizontal
+  </mat-grid-tile>
+  <mat-grid-tile>
+   - ts import
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+     <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+   mat-slider  vartical
+  </mat-grid-tile>
+  <mat-grid-tile>
+   - ts import
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+     <mat-slider vertical min="1" max="100" step="1" value="50"></mat-slider>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

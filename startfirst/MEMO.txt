@@ -1,0 +1,26 @@
+
+https://note.com/mm_morimori/n/n18abdb6447cf
+
+https://material.angular.io/components/slider/overview
+
+https://material.angular.io/components/button/overview
+
+
+
+---
+    This likely means that the library (@angular/material/button) which declares MatButtonModule has not been processed correctly by ngcc, or is not compatible with Angular Ivy. Check if a newer version of the library is available, and update if so. Also consider checking with the library's authors to see if the library is expected to be compatible with Ivy.
+    
+    8 export declare class MatButtonModule {
+---
+
+
+
+#tsconfig.json  -- append line
+
+"enableIvy": false
+"aot": false,
+
+
+### add component
+
+ng generate component checkbox-overview-example
