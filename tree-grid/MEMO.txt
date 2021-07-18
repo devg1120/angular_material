@@ -1,0 +1,2 @@
+https://www.npmjs.com/package/ng-material-treetable
+npm i @angular/material@11.2.13
