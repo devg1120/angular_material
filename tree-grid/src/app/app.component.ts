@@ -1,6 +1,10 @@
 import { Component  } from '@angular/core';
-import { Node, Options } from 'ng-material-treetable';
+import { TreetableModule } from './treetable/treetable.module'; 
+import { Node, Options } from './treetable/treetable.module';
 
+import { mockTree } from './mocks/mockTree';
+import { mockTreeAsArrayOfNodes } from './mocks/mockTreeAsArrayOfNodes';
+import { Folder, Task } from './mocks/models';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +13,23 @@ import { Node, Options } from 'ng-material-treetable';
 })
 
 
+export class AppComponent {
+  treeOptions: Options<Folder> = {
+    capitalisedHeader: true,
+    customColumnOrder: [
+      'owner', 'name', 'backup', 'protected'
+    ]
+  };
+
+  singleRootTree: Node<Folder> = mockTree;
+  arrayOfNodesTree: Node<Task>[] = mockTreeAsArrayOfNodes;
+
+  logNode(node: Node<Folder>) {
+    console.log(node);
+  }
+ }
+
+/***********************************************
 export class AppComponent {
 
   treeOptions: Options<Report> = {
@@ -175,3 +196,4 @@ export interface Task {
   owner: string;
 }
 
+*/
