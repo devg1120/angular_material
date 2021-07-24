@@ -40,7 +40,6 @@ export class SchedulerComponent implements OnInit, OnChanges {
   @Input() allowDrop: (item:SchedulerItem, date:number, hour:number, fullDate:Date) => boolean;
   @Input() disabled: boolean = false;
   @Input() removeButtons: boolean = true;
-
   @Output() onSlotClick = new EventEmitter();
   @Output() onSlotDoubleClick = new EventEmitter();
   @Output() onSlotHover = new EventEmitter();
@@ -49,7 +48,6 @@ export class SchedulerComponent implements OnInit, OnChanges {
   @Output() onItemDragStart = new EventEmitter();
   @Output() onItemDragHover = new EventEmitter();
   @Output() onItemDragEnd = new EventEmitter();
-  @Output() onItemResize = new EventEmitter();
 
   // public members
   public hours: number[] = [];
@@ -75,7 +73,6 @@ export class SchedulerComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes:{[x:string]: SimpleChange}) {
     if (changes['items']) {
-    console.log("changes  items;", changes);
       this.itemLookup = {};
       this.items.forEach(item => {
         let key = item.startDate.getDate() + '_' + (item.allDay ? 'allday' : item.startDate.getHours());
@@ -156,6 +153,7 @@ export class SchedulerComponent implements OnInit, OnChanges {
     let hour: number = hour_org;
     event.preventDefault();
 
+    if ( !this.resizing) {
        let fullDate = this.getSlotDate(date, hour),
        allDay = typeof(hour)==='undefined',
        minuteOffset = event.dataTransfer.getData('minuteOffset');
@@ -177,7 +175,11 @@ export class SchedulerComponent implements OnInit, OnChanges {
        this.onItemDragEnd.emit({item: this.drag.item,date,hour,fullDate,allDay,originalEvent:event});
        this.drag = null;
    
+    } else {
 
+       this.resizing = false;
+   
+    }
   }
 
   itemDragOver(event: any, date:number, hour?:number) {
@@ -206,15 +208,15 @@ export class SchedulerComponent implements OnInit, OnChanges {
        this.resizing_direction = "bottom";
 
     }
-    //event.preventDefault(); //上位伝搬停止
-    event.stopPropagation();
+    event.preventDefault(); //上位伝搬停止
+    //event.stopPropagation();
   }
 
 
   itemResizeMove(event: any, direction: string, date:number, hour?:number) {
        const dy = event.y - this.resizing_start_y_pos ;
        this.resizing_start_y_pos = event.y;
-       console.log("itemResizeMove ...", this.resizing_direction, hour, dy);
+       console.log("resiging ...", this.resizing_direction, hour, dy);
        //panel.style.width = (parseInt(getComputedStyle(panel, '').width) + dx) + "px";
 
        event.preventDefault(); //上位伝搬停止

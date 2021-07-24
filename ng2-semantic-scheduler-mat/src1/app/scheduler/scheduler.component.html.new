@@ -48,15 +48,13 @@
 
     <!-- ng-template --------------------------------------------------->
     <ng-template ngFor let-hour [ngForOf]="hours">
-        <tr class="half-hour-top"
-          >
+        <tr>
           <!-- TIME -->
-          <td class="day" rowspan="2"
-            >{{hour}}:00
+          <td class="day" rowspan="2">{{hour}}:00
           </td>
 
           <!-- HH1 -->
-          <td class="daysofweek" *ngFor="let day of daysOfWeek" 
+          <td *ngFor="let day of daysOfWeek" 
 
             (click)     = "slotClick       ($event, day.number, hour)" 
             (dblclick)  = "slotDoubleClick ($event, day.number, hour)" 
@@ -65,18 +63,12 @@
             (drop)      = "itemDrop        ($event, day.number, hour)" 
             (dragover)  = "itemDragOver    ($event, day.number, hour)"
           >
-               <!--- START ITEM 
-                    [style.height] = "((cellHeight*2*item.duration))+'px'" 
-                    [style.height] = "70+ 'px'" 
-               
-               -->
+               <!--- START ITEM -->
 
                   <div *ngFor="let item of itemLookup[day.number+'_'+hour]" 
 
                     [style.top]    = "(item.startDate.getMinutes()/30*cellHeight)+'px'" 
-                    [style.height] = "(((cellHeight)*2*item.duration))+item.duration+'px'" 
-                    [style.padding] = "0+'px'" 
-                    [style.margin] = "0+'px'" 
+                    [style.height] = "((cellHeight*2*item.duration))+'px'" 
                     [class]        = "'mini ui button item '+(item.colour||defaultItemColour)" 
                     (click)        = "itemClick     ($event, item)" draggable="true" 
                     (dragstart)    = "itemDragStart ($event, item)"
@@ -90,9 +82,6 @@
 
                     <span *ngIf="resizeHandles" class="resizer top" 
                       (mousedown)   = "itemResizeStart ($event, 'top', item)"
-                      (mousemove)   = "itemResizeMove  ($event, 'top', day.number, hour)"
-                      (mouseup)     = "itemResizeStop  ($event, 'top', item)"
-                       draggable="true"
                     >
                     </span>
 
@@ -100,9 +89,6 @@
 
                     <span *ngIf="resizeHandles" class="resizer bottom" 
                       (mousedown)   = "itemResizeStart ($event, 'bottom', item)"
-                      (mousemove)   = "itemResizeMove  ($event, 'buttom', day.number, hour)"
-                      (mouseup)     = "itemResizeStop  ($event, 'bottom', item)"
-                       draggable="true"
                     >
                     </span>
                   </div>

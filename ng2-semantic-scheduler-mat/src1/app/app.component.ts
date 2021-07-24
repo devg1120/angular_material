@@ -84,43 +84,12 @@ export class AppComponent {
 
   moveItem = ({item, fullDate, allDay}:any) => {
     let duration = (item.endDate.getTime()-item.startDate.getTime());
-    console.log(duration);
     this.items = this.items.map(i => i.id == item.id ? Object.assign({},i,{
       startDate: fullDate,
       endDate: new Date(fullDate.getTime()+duration),
       allDay
     }) : i);
   }
-
-  
-  //resizeItem = ({item, from:'top'|'bottom', direction:'up'|'down'}:any) => {
-  resizeItem = ({item, from, direction }:any) => {
-    let duration = 30*60*1000; // 1800000
-    let _startDate = item.startDate.getTime();
-    let _endDate   = item.endDate.getTime();
-    
-    if ( from == 'top') {
-       if ( direction == 'up' ) {
-         _startDate = new Date(_startDate.getTime() - duration);
-        } else {
-         _startDate = new Date(_startDate.getTime() + duration);
-        }
-    } else {
-       if ( direction == 'up' ) {
-         _endDate = new Date(_endDate.getTime() - duration);
-        } else {
-         _endDate = new Date(_endDate.getTime() + duration);
-        }
-
-    }
-    
-
-    this.items = this.items.map(i => i.id == item.id ? Object.assign({},i,{
-      startDate: _startDate,
-      endDate: _endDate
-    }) : i);
-  }
-  
 
   toggleDay = (event:any, value:number) => {
     if (!event.target.checked) this.selectedDays = this.selectedDays.filter(day => day !== value);

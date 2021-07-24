@@ -32,20 +32,7 @@
   </form>
   <br />
   <div class="ui form">
-    <sui-scheduler 
-
-       startDate="2017-09-24" 
-
-       [items]="items" 
-       [showAllDay]="showAllDay" 
-       [allowDrop]="allowDrop"
-       [removeButtons]="allowRemove" 
-       [days]="selectedDays" 
-
-       (onItemRemove)  = "removeItem($event)" 
-       (onItemDragEnd) = "moveItem($event)"  
-       (onItemResize)  = "resizeItem($event)" 
-       
-     ></sui-scheduler>
+    <sui-scheduler [items]="items" startDate="2017-09-24" [showAllDay]="showAllDay" [allowDrop]="allowDrop"
+    [removeButtons]="allowRemove" [days]="selectedDays" (onItemRemove)="removeItem($event)" (onItemDragEnd)="moveItem($event)"></sui-scheduler>
   </div>
 </main>
